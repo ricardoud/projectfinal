@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Lavado</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        label {
+            font-weight: bold;
+            margin: 10px 0 5px;
+            display: inline-block;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+        select, input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Estilos para el bloque del select */
+        .select-container, .radio-container {
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        /* Estilos para los radio buttons */
+        .radio-container label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="radio"] {
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+
+        .form-container p {
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .form-container button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .form-container button:hover {
+            background-color: #2980b9;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Formulario de Lavado</h2>
+
+    <!-- Área de texto -->
+    <div class="textarea-container">
+        <label for="comentarios">Comentarios adicionales:</label>
+        <textarea id="comentarios" name="comentarios" placeholder="Escribe tus comentarios aquí..."></textarea>
+    </div>
+
+    <!-- Módulo Select para elegir el tipo de lavado -->
+    <div class="select-container">
+        <label for="lavado">Selecciona el tipo de lavado (Select):</label>
+        <select id="lavado" name="lavado">
+            <option value="normal">Lavado Normal</option>
+            <option value="intermedio">Lavado Intermedio</option>
+            <option value="full">Lavado Full</option>
+        </select>
+    </div>
+
+    <!-- Módulo Radio Buttons para elegir el tipo de lavado -->
+    <div class="radio-container">
+        <p><strong>Selecciona el tipo de lavado (Radio Buttons):</strong></p>
+        <label>
+            <input type="radio" name="lavadoRadio" value="normal"> Lavado Normal
+        </label>
+        <label>
+            <input type="radio" name="lavadoRadio" value="intermedio"> Lavado Intermedio
+        </label>
+        <label>
+            <input type="radio" name="lavadoRadio" value="full"> Lavado Full
+        </label>
+    </div>
+
+    <!-- Botón de envío (opcional, solo para estructura) -->
+    <button type="submit">Enviar</button>
+</div>
+
+</body>
+</html>

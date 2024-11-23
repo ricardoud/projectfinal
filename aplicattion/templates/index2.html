@@ -1,0 +1,32 @@
+<!-- comentarios/templates/comentarios/comentario_form.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Comentarios</title>
+</head>
+<body>
+
+<h2>Formulario de Comentarios</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <!-- Campo para el comentario (textarea) -->
+    <div>
+        <label for="{{ form.comentario.id_for_label }}">Comentario:</label>
+        {{ form.comentario }}
+    </div>
+
+    <!-- Campo para los radio buttons (Lavado) -->
+    <div>
+        <label for="{{ form.lavado.id_for_label }}">Elige el tipo de lavado:</label>
+        {{ form.lavado }}  <!-- Django renderiza automáticamente los radio buttons aquí -->
+    </div>
+
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>

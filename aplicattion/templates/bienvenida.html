@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        /* Reset para quitar márgenes y padding por defecto */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Fondo con gradiente atractivo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff; /* Color de texto blanco para resaltar */
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 700px;  /* Aumentamos el ancho máximo */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  /* 2 columnas para mejor distribución */
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 20px 40px; /* Botones más grandes */
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra cuando se pasa el mouse */
+        }
+
+        /* Estilos para cada botón */
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .btn-info {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .btn-success {
+            background-color: #8bc34a;
+            color: white;
+        }
+
+        .btn-light {
+            background-color: #f1f1f1;
+            color: black;
+            border: 1px solid #ddd;
+        }
+
+        .btn-light:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Selecciona alguna opción a ejecutar</h1> <!-- Título actualizado -->
+    <div class="button-container">
+        <button class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:8000/formdpto/'">Consulta o Registra Departamentos</button>
+        <button class="btn btn-secondary" onclick="window.location.href='http://127.0.0.1:8000/formmpio/'">Consulta o Registra Municipios</button>
+        <button class="btn btn-danger" onclick="window.location.href='http://127.0.0.1:8000/formsuc/'">Consulta o Registra Sucursales</button>
+        <button class="btn btn-warning" onclick="window.location.href='http://127.0.0.1:8000/formcli/'">Consulta o Registra Clientes</button>
+        <button class="btn btn-info" onclick="window.location.href='http://127.0.0.1:8000/formprenda/'">Consulta o Registra Prendas</button>
+        <button class="btn btn-success" onclick="window.location.href='http://127.0.0.1:8000/formarmario/'">Consulta o Registra Armarios</button>
+        <button class="btn btn-light" onclick="window.location.href='http://127.0.0.1:8000/formfacturas/'">Consulta o Registra Facturas</button>
+        <button class="btn btn-danger" onclick="window.location.href='http://127.0.0.1:8000/formlavadoras/'">Consulta o Registra Lavadoras</button>
+    </div>
+</div>
+
+</body>
+</html>
