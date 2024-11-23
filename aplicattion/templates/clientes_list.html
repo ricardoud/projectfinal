@@ -1,0 +1,44 @@
+<!-- departamentos_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+</head>
+<body>
+    <h1>Lista de Clientes</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>identificacion</th>
+                <th>nombre1</th>
+                <th>nombre2</th>
+                <th>apellido1</th>
+                <th>apellido2</th>
+                <th>email</th>
+                <th>telefono</th>
+                <th>direccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.identificacion }}</td>
+                <td>{{ cliente.nombre1 }}</td>
+                <td>{{ cliente.nombre2 }}</td>
+                <td>{{ cliente.apellido1 }}</td>
+                <td>{{ cliente.apellido2 }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td>{{ cliente.direccion }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No hay clientes registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

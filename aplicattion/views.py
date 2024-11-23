@@ -27,19 +27,45 @@ def formu_dpto(request):
     return render(request, 'form_dpto.html', {'form': form})
 
 def formu_mpio(request):
-    form = MpioForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
-    return render(request, 'form_dpto.html', {'form': form})
+    form = MpioForm(request.POST)
+    if form.is_valid():
+            # Si el formulario es válido, guarda el nuevo departamento en la base de datos
+            form.save()
+            form = MpioForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    else:
+        messages.error(request, "Hubo un error al guardar los datos. Por favor, revisa los campos.")
+    return render(request, 'form_mpio.html', {'form': form})
 
 def formu_suc(request):
-    form = SucForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    form = SucForm(request.POST)
+    if form.is_valid():
+            # Si el formulario es válido, guarda el nuevo departamento en la base de datos
+            form.save()
+            form = SucForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    else:
+        messages.error(request, "Hubo un error al guardar los datos. Por favor, revisa los campos.")
+
     return render(request, 'form_sucursal.html', {'form': form})
 
 def formu_cliente(request):
-    form = ClienteForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    form = ClienteForm(request.POST)
+    if form.is_valid():
+            # Si el formulario es válido, guarda el nuevo departamento en la base de datos
+            form.save()
+            form = ClienteForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    else:
+        messages.error(request, "Hubo un error al guardar los datos. Por favor, revisa los campos.")
+
     return render(request, 'form_cliente.html', {'form': form})
 
 def formu_prenda(request):
-    form = PrendaForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    form = PrendaForm(request.POST)
+    if form.is_valid():
+            # Si el formulario es válido, guarda el nuevo departamento en la base de datos
+            form.save()
+            form = PrendaForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    else:
+        messages.error(request, "Hubo un error al guardar los datos. Por favor, revisa los campos.")
     return render(request, 'form_prenda.html', {'form': form})
 
 def formu_armario(request):
@@ -77,3 +103,33 @@ def departamentos_list(request):
 
     # Pasar los registros a la plantilla
     return render(request, 'departamentos_list.html', {'departamentos': departamentos})
+
+
+def municipios_list(request):
+    # Consultar todos los registros de la tabla Departamento
+    municipios = municipio.objects.all()
+
+    # Pasar los registros a la plantilla
+    return render(request, 'municipios_list.html', {'municipios': municipios})
+
+def sucursales_list(request):
+    # Consultar todos los registros de la tabla Departamento
+    sucursales = sucursal.objects.all()
+
+    # Pasar los registros a la plantilla
+    return render(request, 'sucursales_list.html', {'sucursales': sucursales})
+
+def clientes_list(request):
+    # Consultar todos los registros de la tabla Departamento
+    clientes = cliente.objects.all()
+
+    # Pasar los registros a la plantilla
+    return render(request, 'clientes_list.html', {'clientes': clientes})
+
+
+def prendas_list(request):
+    # Consultar todos los registros de la tabla Departamento
+    prendas = prenda.objects.all()
+
+    # Pasar los registros a la plantilla
+    return render(request, 'prendas_list.html', {'prendas': prendas})

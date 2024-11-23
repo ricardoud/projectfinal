@@ -1,0 +1,34 @@
+<!-- departamentos_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipios</title>
+</head>
+<body>
+    <h1>Lista de Municipios</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>cod_mpio</th>
+                <th>nombre_mun</th>
+                <th>cod_dpto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for municipio in municipios %}
+            <tr>
+                <td>{{ municipio.cod_mpio }}</td>
+                <td>{{ municipio.nombre_mun }}</td>
+                <td>{{ municipio.cod_dpto }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No hay municipios registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

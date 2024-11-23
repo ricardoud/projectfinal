@@ -1,0 +1,36 @@
+<!-- departamentos_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prendas</title>
+</head>
+<body>
+    <h1>Lista de Prendas</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>id_prenda</th>
+                <th>descripcion</th>
+                <th>color</th>
+                <th>estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prenda in prendas %}
+            <tr>
+                <td>{{ prenda.id_prenda }}</td>
+                <td>{{ prenda.descripcion }}</td>
+                <td>{{ prenda.color }}</td>
+                <td>{{ prenda.estado }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No hay prendas registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

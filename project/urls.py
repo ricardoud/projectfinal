@@ -19,5 +19,10 @@ urlpatterns = [
     path('formlavadoras/', formu_lavadora),
     path('bienvenida/', botones),
     path('departamentosl/', departamentos_list, name='departamentos_list'),
+    path('municipios_list/', municipios_list),
+    path('sucursalesl/', sucursales_list),
+    path('clientes_list/', clientes_list),
+    path('prendas_list', prendas_list),
+ 
 
 ]
