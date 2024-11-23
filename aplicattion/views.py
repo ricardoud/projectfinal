@@ -1,4 +1,5 @@
 # comentarios/views.py
+from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -10,8 +11,19 @@ def hello(request):
 
 def botones(request):
     return render(request, 'bienvenida.html')
+
 def formu_dpto(request):
-    form = DptoForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    form = DptoForm(request.POST)
+    if form.is_valid():
+            # Si el formulario es válido, guarda el nuevo departamento en la base de datos
+            form.save()
+            form = DptoForm()
+     # Redirige a una página de éxito o lista
+
+    else:
+        messages.error(request, "Hubo un error al guardar los datos. Por favor, revisa los campos.")
+        #form = DptoForm()  # Si es un GET, muestra un formulario vacío
+
     return render(request, 'form_dpto.html', {'form': form})
 
 def formu_mpio(request):
@@ -57,3 +69,11 @@ def comentario_view(request):
         form = ComentarioForm()
 
     return render(request, 'index2.html', {'form': form})
+
+
+def departamentos_list(request):
+    # Consultar todos los registros de la tabla Departamento
+    departamentos = departamento.objects.all()
+
+    # Pasar los registros a la plantilla
+    return render(request, 'departamentos_list.html', {'departamentos': departamentos})

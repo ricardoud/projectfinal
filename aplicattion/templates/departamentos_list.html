@@ -1,0 +1,32 @@
+<!-- departamentos_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departamentos</title>
+</head>
+<body>
+    <h1>Lista de Departamentos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Cod</th>
+                <th>Nombre Dpto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for departamento in departamentos %}
+            <tr>
+                <td>{{ departamento.cod_dpto }}</td>
+                <td>{{ departamento.nombre_dpto }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No hay departamentos registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

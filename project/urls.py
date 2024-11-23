@@ -18,5 +18,6 @@ urlpatterns = [
     path('formfacturas/', formu_factura),
     path('formlavadoras/', formu_lavadora),
     path('bienvenida/', botones),
+    path('departamentosl/', departamentos_list, name='departamentos_list'),
 
 ]
