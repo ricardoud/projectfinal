@@ -1,10 +1,10 @@
-<!-- departamentos_list.html -->
+<!-- facturas_list.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes</title>
+    <title>Facturas</title>
     <style>
         /* Estilos generales para la página */
         body {
@@ -56,11 +56,11 @@
         }
 
         table tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
 
         table tr:hover {
-            background-color: #e9e9e9;
+            background-color: #f1f1f1;
         }
 
         /* Estilo para el mensaje de "no hay datos" */
@@ -85,35 +85,27 @@
 </head>
 <body>
     <div class="table-container">
-        <h1>Lista de Clientes</h1>
+        <h1>Lista de Facturas</h1>
         <table>
             <thead>
                 <tr>
-                    <th>Identificación</th>
-                    <th>Nombre 1</th>
-                    <th>Nombre 2</th>
-                    <th>Apellido 1</th>
-                    <th>Apellido 2</th>
-                    <th>Email</th>
-                    <th>Teléfono</th>
-                    <th>Dirección</th>
+                    <th>ID Factura</th>
+                    <th>Estado</th>
+                    <th>Fecha Emisión</th>
+                    <th>Valor Total</th>
                 </tr>
             </thead>
             <tbody>
-                {% for cliente in clientes %}
+                {% for factura in facturas %}
                     <tr>
-                        <td>{{ cliente.identificacion }}</td>
-                        <td>{{ cliente.nombre1 }}</td>
-                        <td>{{ cliente.nombre2 }}</td>
-                        <td>{{ cliente.apellido1 }}</td>
-                        <td>{{ cliente.apellido2 }}</td>
-                        <td>{{ cliente.email }}</td>
-                        <td>{{ cliente.telefono }}</td>
-                        <td>{{ cliente.direccion }}</td>
+                        <td>{{ factura.id_factura }}</td>
+                        <td>{{ factura.estado }}</td>
+                        <td>{{ factura.fecha_emision }}</td>
+                        <td>{{ factura.valor_total }}</td>
                     </tr>
                 {% empty %}
                     <tr>
-                        <td colspan="8" class="empty-message">No hay clientes registrados.</td>
+                        <td colspan="4" class="empty-message">No hay facturas registradas.</td>
                     </tr>
                 {% endfor %}
             </tbody>

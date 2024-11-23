@@ -1,34 +1,113 @@
-<!-- departamentos_list.html -->
+<!-- municipios_list.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Municipios</title>
+    <style>
+        /* Estilos generales para la página */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor de la tabla */
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        /* Título de la página */
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para la tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Estilo para el mensaje de "no hay datos" */
+        .empty-message {
+            text-align: center;
+            font-size: 16px;
+            color: #888;
+        }
+
+        /* Responsive: cuando la pantalla es pequeña, la tabla se adapta */
+        @media (max-width: 768px) {
+            table th, table td {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Lista de Municipios</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>cod_mpio</th>
-                <th>nombre_mun</th>
-                <th>cod_dpto</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for municipio in municipios %}
-            <tr>
-                <td>{{ municipio.cod_mpio }}</td>
-                <td>{{ municipio.nombre_mun }}</td>
-                <td>{{ municipio.cod_dpto }}</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="3">No hay municipios registrados.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="table-container">
+        <h1>Lista de Municipios</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código Municipio</th>
+                    <th>Nombre Municipio</th>
+                    <th>Código Departamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for municipio in municipios %}
+                    <tr>
+                        <td>{{ municipio.cod_mpio }}</td>
+                        <td>{{ municipio.nombre_mun }}</td>
+                        <td>{{ municipio.cod_dpto }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3" class="empty-message">No hay municipios registrados.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

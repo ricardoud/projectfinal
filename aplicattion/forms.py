@@ -45,6 +45,10 @@ class LavadoraForm(forms.ModelForm):
         model = lavadora
         fields = '__all__'
 
+class Fact_clie(forms.ModelForm):
+    class Meta:
+        model = fact_clie
+        fields = '__all__'
 
 
 

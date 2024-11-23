@@ -73,8 +73,27 @@ def formu_armario(request):
     return render(request, 'form_armario.html', {'form': form})
 
 def formu_factura(request):
-    form = FacturaForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    form = FacturaForm(request.POST)
+    if form.is_valid():
+            # Si el formulario es válido, guarda el nuevo departamento en la base de datos
+            form.save()
+            form = FacturaForm()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    else:
+        messages.error(request, "Hubo un error al guardar los datos. Por favor, revisa los campos.")
+
     return render(request, 'form_factura.html', {'form': form})
+
+
+def fact_clie(request):
+    form = Fact_clie(request.POST)
+    if form.is_valid():
+            # Si el formulario es válido, guarda el nuevo departamento en la base de datos
+            form.save()
+            form = Fact_clie()  # Solo creamos el formulario sin validación ni procesamiento de datos
+    else:
+        messages.error(request, "Hubo un error al guardar los datos. Por favor, revisa los campos.")
+
+    return render(request, 'form_fact_clie.html', {'form': form})
 
 
 def formu_lavadora(request):
@@ -133,3 +152,10 @@ def prendas_list(request):
 
     # Pasar los registros a la plantilla
     return render(request, 'prendas_list.html', {'prendas': prendas})
+
+def facturas_list(request):
+    # Consultar todos los registros de la tabla Departamento
+    facturas = factura.objects.all()
+
+    # Pasar los registros a la plantilla
+    return render(request, 'facturas_list.html', {'facturas': facturas})

@@ -22,7 +22,9 @@ urlpatterns = [
     path('municipios_list/', municipios_list),
     path('sucursalesl/', sucursales_list),
     path('clientes_list/', clientes_list),
-    path('prendas_list', prendas_list),
+    path('prendas_list/', prendas_list),
+    path('facturasl/', facturas_list),
+    path('form_factura/', fact_clie),
  
 
 ]

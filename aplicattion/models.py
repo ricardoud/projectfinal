@@ -52,5 +52,11 @@ class lavadora (models.Model):
         estado=models.CharField(max_length=12, null=False)
 
 
+class fact_clie (models.Model):
+
+        id_fact=models.ForeignKey(factura, on_delete=models.CASCADE)
+        id_cliente=models.ForeignKey(cliente, on_delete=models.CASCADE)
+
+
         
 

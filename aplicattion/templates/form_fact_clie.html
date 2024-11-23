@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facturas</title>
+    <title>Facturas Clientes</title>
     <style>
         /* Estilo para el body */
         body {
@@ -88,7 +88,7 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Formulario para agregar o consultar facturas</h1>
+        <h1>Formulario para agregar o facturas a clientes</h1>
         <form method="POST">
             {% csrf_token %}
             
@@ -97,7 +97,7 @@
 
             <button type="submit">Guardar</button>
             <br>
-            <button type="button" onclick="window.location.href='/facturasl'">Listar Facturas</button>
+            <button type="button" onclick="window.location.href='/departamentosl'">Listar</button>
         </form>
     </div>
 </body>
